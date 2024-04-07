@@ -6,16 +6,19 @@ using UnityEngine.InputSystem;
 public class Movement : MonoBehaviour
 {
     Rigidbody rb;
-    [SerializeField]
-    InputActionMap actionMap;
+    bool isMove;
     void Start()
     {
         rb = gameObject.GetComponent<Rigidbody>();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void FixedUpdate()
     {
-
     }
+
+    public void OnPressedClassicMovement(InputValue ýnputValue)
+    {
+        Debug.Log("what");
+    }
+
 }
