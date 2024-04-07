@@ -1,0 +1,67 @@
+{
+    "name": "InGame",
+    "maps": [
+        {
+            "name": "Movement",
+            "id": "79bf002a-4924-4f39-9a00-58d56c0364a5",
+            "actions": [
+                {
+                    "name": "ClassicMovement",
+                    "type": "Button",
+                    "id": "b28a3c53-8521-40f1-8bc0-578a24fbd4f2",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "1ec49d91-62a2-4c23-bba2-f17e97086116",
+                    "path": "<Keyboard>/w",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ClassicMovement",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b14e1c2c-73b9-4643-ba90-4143d9c7d157",
+                    "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ClassicMovement",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "26e3f170-46f4-4d6a-bf02-a5a1260bf4aa",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ClassicMovement",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "7738062a-2b1e-480f-b84f-33c1d5975c04",
+                    "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ClassicMovement",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
