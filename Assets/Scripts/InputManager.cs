@@ -4,9 +4,23 @@ using UnityEngine;
 
 public class InputManager : MonoBehaviour
 {
+    private static InputManager _instance;
+    public static InputManager Instance
+    {
+        get { return _instance; }
+    }
+
     private FpsDenem inputActions;
     private void Awake()
     {
+        if (_instance != null && _instance != this)
+        {
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            _instance = this;
+        }
         inputActions = new FpsDenem();
     }
     private void OnEnable()
@@ -24,6 +38,7 @@ public class InputManager : MonoBehaviour
     }
     public Vector2 getMouseDelta()
     {
+        Debug.Log(inputActions.Player.Look.ReadValue<Vector2>());
         return inputActions.Player.Look.ReadValue<Vector2>();
     }
     public bool playerJumped()
