@@ -7,6 +7,8 @@ using UnityEngine.InputSystem;
 
 public class Movement : MonoBehaviour
 {
+    //Currently Not Using In Hierrarcy
+
     [SerializeField]
     InputActionReference reference;
 
@@ -45,7 +47,6 @@ public class Movement : MonoBehaviour
         _movedirection = reference.action.ReadValue<Vector3>();
         Debug.Log(_movedirection);
         rb.AddForce(moveSpeed * Time.fixedDeltaTime * _movedirection);
-//        if()
     }
 
     public void OnPressedClassicMovement(InputValue ýnputValue)
