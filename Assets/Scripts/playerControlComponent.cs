@@ -1,51 +1,52 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-[RequireComponent(typeof(CharacterController))]
 public class playerControlComponent : MonoBehaviour
 {
-    private CharacterController controller;
     private Vector3 playerVelocity;
-    private bool groundedPlayer;
     [SerializeField]
-    private float playerSpeed = 2.0f;
+    private float playerSpeed;
     [SerializeField]
-    private float jumpHeight = 1.0f;
-    [SerializeField]
-    private float gravityValue = -9.81f;
+    private float jumpHeight;
 
     private InputManager iManager;
 
+    private Transform camTransform;
+
+    private CapsuleCollider col;
+
+    private bool isGrounded = true;
+
+    private Rigidbody rb;
+
     private void Start()
     {
-        controller = gameObject.GetComponent<CharacterController>();
+
+        rb = gameObject.GetComponent<Rigidbody>();
         iManager = InputManager.Instance;
+        camTransform = Camera.main.transform;
     }
 
-    void Update()
+    void FixedUpdate()
     {
-        groundedPlayer = controller.isGrounded;
-        if (groundedPlayer && playerVelocity.y < 0)
-        {
-            playerVelocity.y = 0f;
-        }
-
         Vector2 movement = iManager.getPlayerMovement();
         Vector3 move = new Vector3(movement.x, 0f, movement.y);
-        controller.Move(move * Time.deltaTime * playerSpeed);
-
-        if (move != Vector3.zero)
-        {
-            gameObject.transform.forward = move;
-        }
+        move = camTransform.forward * move.z + camTransform.right*move.x;
+        move.y = 0f;
+        rb.velocity += move * Time.fixedDeltaTime * playerSpeed;
+        
 
         // Changes the height position of the player..
-        if (iManager.playerJumped() && groundedPlayer)
+        if (iManager.playerJumped() && isGrounded)
         {
-            playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
+            Debug.Log("in");
+            rb.AddForce(0f, jumpHeight, 0f);
         }
-
-        playerVelocity.y += gravityValue * Time.deltaTime;
-        controller.Move(playerVelocity * Time.deltaTime);
     }
+
+    public void groundState(bool stateOFplayer)
+    {
+        isGrounded = stateOFplayer;
+    }
+
 }

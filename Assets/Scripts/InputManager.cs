@@ -38,7 +38,6 @@ public class InputManager : MonoBehaviour
     }
     public Vector2 getMouseDelta()
     {
-        Debug.Log(inputActions.Player.Look.ReadValue<Vector2>());
         return inputActions.Player.Look.ReadValue<Vector2>();
     }
     public bool playerJumped()
