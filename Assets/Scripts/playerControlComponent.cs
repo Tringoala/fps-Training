@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+//using UnityEngine.UIElements;
 public class playerControlComponent : MonoBehaviour
 {
     private Vector3 playerVelocity;
@@ -25,6 +26,7 @@ public class playerControlComponent : MonoBehaviour
         rb = gameObject.GetComponent<Rigidbody>();
         iManager = InputManager.Instance;
         camTransform = Camera.main.transform;
+        Cursor.visible = false;
     }
 
     void FixedUpdate()
